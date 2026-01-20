@@ -11,15 +11,25 @@
         <item>@string/dolby_profile_video</item>
         <item>@string/dolby_profile_music</item>
         <item>@string/dolby_profile_voice</item>
-        <item>@string/dolby_profile_custom</item>
+        <item>@string/dolby_profile_custom</item>       
+        <item>@string/dolby_profile_spatial</item>
+        <item>@string/dolby_profile_game</item>
+        <item>@string/dolby_profile_mobigo</item>
+        <item>@string/dolby_profile_mobicommute</item>
+        <item>@string/dolby_profile_mobitravel</item>
     </string-array>
 
     <string-array name="dolby_profile_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
-        <item>8</item>
+        <item>9</item>
         <item>3</item>
+        <item>4</item>
+        <item>8</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
     </string-array>
 
     <string-array name="dolby_preset_entries" translatable="false">
@@ -60,20 +70,25 @@
     <string-array name="dolby_dialogue_entries">
         <item>@string/dolby_off</item>
         <item>@string/dolby_low</item>
+        <item>@string/dolby_low_medium</item>
         <item>@string/dolby_medium</item>
         <item>@string/dolby_high</item>
+        <item>@string/dolby_very_high</item>
         <item>@string/dolby_max</item>
     </string-array>
 
     <string-array name="dolby_dialogue_values">
         <item>0</item>
         <item>2</item>
+        <item>3</item>
+        <item>4</item>
         <item>6</item>
+        <item>8</item>
         <item>9</item>
-        <item>12</item>
     </string-array>
 
     <string-array name="dolby_stereo_entries">
+        <item>@string/dolby_very_low</item>
         <item>@string/dolby_low</item>
         <item>@string/dolby_medium</item>
         <item>@string/dolby_high</item>
@@ -82,9 +97,10 @@
 
     <string-array name="dolby_stereo_values">
         <item>4</item>
-        <item>24</item>
-        <item>44</item>
-        <item>64</item>
+        <item>16</item>
+        <item>35</item>
+        <item>103</item>
+        <item>160</item>
     </string-array>
 
     <string-array name="dolby_ieq_entries">

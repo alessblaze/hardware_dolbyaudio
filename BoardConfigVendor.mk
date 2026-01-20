@@ -1,5 +1,5 @@
 
-DOLBY_PATH := hardware/dolby
+DOLBY_PATH := hardware/dolbyaudio
 # SEPolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DOLBY_PATH)/sepolicy/vendor
 
