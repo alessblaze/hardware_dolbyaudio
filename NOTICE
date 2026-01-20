@@ -235,6 +235,54 @@ void DsParams(void)
   return;
 }
 
+ELF PATCH NOTES (Dolby Codec2 AIDL)
+
+- Renamed Dolby Codec2 shared libs to coexist with AOSP:
+    libcodec2_soft_ddpdec.so  -> libcodec2_soft_ddp2dc.so
+    libcodec2_store_dolby.so  -> libcodec2_store_dolby_google.so
+    libdeccfg.so              -> libdeccfg_google.so
+    libdapparamstorage.so     -> libdapparamstorage_google.so
+
+- Updated DT_NEEDED / SONAME entries using patchelf to match renamed libs
+  and avoid symbol & namespace collisions with system Codec2.
+
+- Patched vendor.dolby.media.c2 service binary:
+    * Bypassed AIDL-only guard by replacing the conditional branch
+      (tbz w0,#0, abort) with a NOP (1F 20 03 D5).
+    * This forces execution to continue into AIDL service registration
+      without altering registers or program state.
+
+- Result:
+    android.hardware.media.c2.IComponentStore/default2
+    is successfully registered via AIDL and coexists with
+    the AOSP software ComponentStore.
+
+Status: clean boot, service running, AIDL registered.
+
+for qcom a media extractor is needed. mainly available at system_ext/(lib/lib64)/extractors
+idk whats equivalent of mediatek.
+
+also in audio policy 
+                    <profile name="" format="AUDIO_FORMAT_AC4"
+                             samplingRates="48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1"/>
+                    <profile name="" format="AUDIO_FORMAT_AC3"
+                             samplingRates="32000 44100 48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1"/>
+                    <profile name="" format="AUDIO_FORMAT_E_AC3"
+                             samplingRates="32000 44100 48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>
+                    <profile name="" format="AUDIO_FORMAT_E_AC3_JOC"
+                             samplingRates="32000 44100 48000"
+                             channelMasks="AUDIO_CHANNEL_OUT_MONO AUDIO_CHANNEL_OUT_STEREO AUDIO_CHANNEL_OUT_2POINT1 AUDIO_CHANNEL_OUT_QUAD AUDIO_CHANNEL_OUT_PENTA AUDIO_CHANNEL_OUT_5POINT1 AUDIO_CHANNEL_OUT_6POINT1 AUDIO_CHANNEL_OUT_7POINT1"/>  
+                             
+also in io config for audio additional formats needed.
+
+|AUDIO_FORMAT_AC4|AUDIO_FORMAT_AC3|AUDIO_FORMAT_E_AC3|AUDIO_FORMAT_E_AC3_JOC                            
+
+in case of codecs has issue. do directly include them in c2 config. this works on a15 miatoll.
+dolby audio codecs are working.
+
 ===========================================================
 END
 ===========================================================
