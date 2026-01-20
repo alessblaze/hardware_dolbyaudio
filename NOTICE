@@ -288,6 +288,9 @@ also in io config for audio additional formats needed.
 in case of codecs has issue. do directly include them in c2 config. this works on a15 miatoll.
 dolby audio codecs are working.
 
+Libs are mostly first party only swdap.so is seperate but it had been checked. 
+Stolen carefully from nuwa_eea_global-ota_full-OS2.0.210.0.VMBEUXM-user-15.0-66406c53cd Xiaomi and tangorpro-bp4a.260105.004.e1-factory-a3a616db Google.
+
 ===========================================================
 END
 ===========================================================
