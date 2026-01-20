@@ -84,6 +84,7 @@ PRODUCT_PACKAGES += \
     libcodec2_hidl@1.2.vendor \
     libcodec2_soft_common.vendor \
     libcodec2_vndk.vendor \
+    libcodec2_client \
     libsfplugin_ccodec_utils.vendor 
 
 # Codec2 Props
@@ -122,6 +123,7 @@ PRODUCT_COPY_FILES += \
 # Codec2 (Dolby)
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.c2@1.0-service.rc \
+    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.media.c2.google-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.c2.google-service.rc \
 
 PRODUCT_PACKAGES += \
     libdapparamstorage \
@@ -145,3 +147,8 @@ PRODUCT_PACKAGES += \
     libswspatializer_ext \
     libspatializer \
     libquasar \
+    libdapparamstorage_google \
+    libdeccfg_google \
+    libcodec2_store_dolby_google \
+    libcodec2_soft_ddp2dc \
+    vendor.dolby.media.c2.google-service

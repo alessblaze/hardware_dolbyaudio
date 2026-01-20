@@ -1,0 +1,8 @@
+service vendor-dolby-media-c2-hal-google /vendor/bin/hw/vendor.dolby.media.c2.google-service
+    interface aidl android.hardware.media.c2.IComponentStore/default2
+    class hal
+    user mediacodec
+    group camera mediadrm drmrpc
+    ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks
+

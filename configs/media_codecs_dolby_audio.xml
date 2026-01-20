@@ -15,6 +15,7 @@
     <Decoders>
         <!-- DOLBY_UDC -->
         <MediaCodec name="c2.dolby.eac3.decoder" >
+            <Attribute name="software-codec"/>
             <Type name="audio/ac3">
                 <Alias name="OMX.dolby.ac3.decoder" />
                 <Limit name="channel-count" max="6" />
@@ -37,6 +38,7 @@
         <!-- DOLBY_UDC END -->
         <!-- DOLBY_AC4 -->
         <MediaCodec name="c2.dolby.ac4.decoder" type="audio/ac4">
+            <Attribute name="software-codec"/>
             <Alias name="OMX.dolby.ac4.decoder" />
             <Limit name="channel-count" max="16" />
             <Limit name="sample-rate" ranges="48000" />
