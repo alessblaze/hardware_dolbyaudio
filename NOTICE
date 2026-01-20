@@ -246,6 +246,11 @@ ELF PATCH NOTES (Dolby Codec2 AIDL)
 - Updated DT_NEEDED / SONAME entries using patchelf to match renamed libs
   and avoid symbol & namespace collisions with system Codec2.
 
+- Also in dolby store there is dynamic loading of ddp2dc codec. which is not in NEEDED 
+  so we needed to patch the libcodec2_soft_ddpdec.so to libcodec2_soft_ddp2dc.so in libcodec2_store_dolby_google.so
+  
+- This is not guranteed to work because there can be other references. which i need to check later. currently it works fine.  
+  
 - Patched vendor.dolby.media.c2 service binary:
     * Bypassed AIDL-only guard by replacing the conditional branch
       (tbz w0,#0, abort) with a NOP (1F 20 03 D5).
