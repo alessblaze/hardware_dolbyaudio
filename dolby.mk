@@ -82,6 +82,11 @@ PRODUCT_PACKAGES += \
     libcodec2_hidl@1.0.vendor \
     libcodec2_hidl@1.1.vendor \
     libcodec2_hidl@1.2.vendor \
+    libcodec2_aidl \
+    android.hardware.media.c2-V1-ndk \
+    android.hardware.media.bufferpool@2.0 \
+    android.hardware.media.bufferpool2-V1-ndk \
+    android.hardware.media.bufferpool@2.0 \
     libcodec2_soft_common.vendor \
     libcodec2_vndk.vendor \
     libcodec2_client \
@@ -119,6 +124,11 @@ PRODUCT_PACKAGES += \
 # Dolby Proprietary blobs
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.hardware.dms@2.0-service.rc \
+
+#seccomp
+PRODUCT_COPY_FILES += \
+    $(DOLBY_PATH)/configs/seccomp/codec2.vendor.base.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.base.policy \
+    $(DOLBY_PATH)/configs/seccomp/codec2.vendor.ext.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.ext.policy \
 
 # Codec2 (Dolby)
 PRODUCT_COPY_FILES += \
