@@ -82,7 +82,7 @@ PRODUCT_PACKAGES += \
     libcodec2_hidl@1.0.vendor \
     libcodec2_hidl@1.1.vendor \
     libcodec2_hidl@1.2.vendor \
-    libcodec2_aidl \
+    libcodec2_aidl.vendor \
     android.hardware.media.c2-V1-ndk \
     android.hardware.media.bufferpool@2.0 \
     android.hardware.media.bufferpool2-V1-ndk \

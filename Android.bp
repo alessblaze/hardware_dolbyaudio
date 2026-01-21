@@ -637,7 +637,7 @@ cc_prebuilt_binary {
                 "libcodec2",
                 "libcodec2_hal_common",
                 "libcodec2_vndk",
-                "libcodec2_aidl_noisurface",
+                "libcodec2_aidl",
                 "android.hardware.media.c2-V1-ndk",
                 "libbinder_ndk",
                 "libbinder",
@@ -792,64 +792,6 @@ cc_prebuilt_library_shared {
         "libc",
         "libm",
         "libdl",
-    ],
-
-    compile_multilib: "64",
-
-    strip: {
-        none: true,
-    },
-}
-
-cc_prebuilt_library_shared {
-    name: "libcodec2_aidl_noisurface",
-    owner: "google",
-    vendor: true,
-    soc_specific: true,
-    prefer: true,
-
-    srcs: [
-        "proprietary/vendor/lib64/libcodec2_aidl_noisurface.so",
-    ],
-
-    shared_libs: [
-        // AConfig / flags
-        "server_configurable_flags",
-        "libaconfig_storage_read_api_cc",
-
-        // NDK / AIDL HALs
-        "android.hardware.common-V2-ndk",
-        "android.hardware.media.bufferpool2-V2-ndk",
-        "android.hardware.media.c2-V1-ndk",
-
-        // Binder / base
-        "libbinder_ndk",
-        "libbase",
-
-        // Codec2
-        "libcodec2",
-        "libcodec2_hal_common",
-        "libcodec2_vndk",
-        "libcodec2_hidl_plugin",
-
-        // Media / graphics
-        "libnativewindow",
-        "libstagefright_aidl_bufferpool2",
-        "libstagefright_bufferpool@2.0.1",
-        "libui",
-
-        // Core AOSP
-        "libcutils",
-        "libutils",
-        "liblog",
-
-        // HIDL base (still needed here)
-        "libhidlbase",
-
-        // Toolchain
-        "libc++",
-        "libc",
-        "libm",
     ],
 
     compile_multilib: "64",
