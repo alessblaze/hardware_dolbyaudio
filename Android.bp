@@ -679,7 +679,7 @@ cc_prebuilt_library_shared {
         "libcodec2_store_dolby_google",
 
         // AOSP / VNDK
-        "libstagefright_foundation",
+        "libstagefright_foundation-v33",
         "libcodec2",
         "libcodec2_vndk",
         "libcodec2_soft_common",
